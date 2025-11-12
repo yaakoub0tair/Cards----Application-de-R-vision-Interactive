@@ -38,8 +38,10 @@ function renderCollections() {
         div.innerHTML = `<div><p class='font-bold text-base text-gray-800'>${c.title}</p>
         <p class='text-sm text-gray-500 mt-1'>${(c.cards||[]).length} carte(s)</p></div>
         <i data-lucide='chevron-right' class='w-5 h-5 text-gray-400'></i>`;
-        div.addEventListener("click", () => { currentId = c.id;
-            showCard(0, false); });
+        div.addEventListener("click", () => {
+            currentId = c.id;
+            showCard(0, false);
+        });
         collectionsList.appendChild(div);
 
         const opt = document.createElement("option");
@@ -47,5 +49,55 @@ function renderCollections() {
         opt.textContent = c.title;
         selectCollection.appendChild(opt);
     });
+    lucide.createIcons();
+}
+
+function showCard(i, keepFlip) {
+    const col = getCol(currentId);
+    if (!col || !col.cards.length) {
+        studyArea.innerHTML = `<p class='text-gray-500'>Aucune carte dans cette collection.</p>`;
+        studyArea.classList.remove("bg-transparent");
+        studyArea.classList.add("bg-white", "shadow-sm", "border", "border-gray-200/80");
+        return;
+    }
+    index = Math.max(0, Math.min(i, col.cards.length - 1));
+    if (!keepFlip) flipped = false;
+    const card = col.cards[index];
+
+    studyArea.classList.remove("bg-white", "shadow-sm", "border", "border-gray-200/80");
+    studyArea.classList.add("bg-transparent");
+
+    studyArea.innerHTML = `
+      <div class='flex flex-col items-center justify-center w-full'>
+        <span class='mb-3 text-gray-700'>Carte ${index+1} / ${col.cards.length}</span>
+        <div id="cardBox" 
+          class="rounded-2xl w-full max-w-lg cursor-pointer text-white text-center py-20 px-6 
+          bg-gradient-to-br ${flipped ? 'from-blue-500 to-blue-600' : 'from-pink-500 to-fuchsia-600'} 
+          transition-all duration-300 transform hover:scale-[1.02]">
+          <div class="text-sm opacity-80 mb-2">
+            ${flipped ? 'RÉPONSE' : 'QUESTION'}
+          </div>
+          <div class="text-2xl font-bold">
+            ${flipped ? card.answer : card.question}
+          </div>
+          <div class="mt-3 text-xs opacity-80 flex items-center justify-center gap-1">
+            <i data-lucide="corner-up-left" class="w-3 h-3 rotate-icon ${flipped?'flipped':''}"></i>
+            Cliquez pour retourner
+          </div>
+        </div>
+        <div class='flex justify-center gap-5 w-full max-w-lg mt-6'>
+          <button id='prevCard' class='px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-300' style="background-color: #FFAEE9;">< Précédent</button>
+          <button id='nextCard' class='px-4 py-2 rounded-lg bg-white text-gray-700 hover:bg-gray-300'>Suivant  ></button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("cardBox").onclick = () => {
+        flipped = !flipped;
+        showCard(index, true);
+    };
+    document.getElementById("prevCard").onclick = () => showCard(index - 1);
+    document.getElementById("nextCard").onclick = () => showCard(index + 1);
+
     lucide.createIcons();
 }
