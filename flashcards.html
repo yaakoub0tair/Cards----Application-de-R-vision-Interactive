@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cards - Application de Révision Interactive</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcards - Cards</title>
     <link rel="stylesheet" href="src/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -32,6 +31,7 @@
 
 <body class="min-h-screen flex flex-col">
 
+    <!-- NAVBAR -->
     <nav class="bg-white shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <!-- Menu Mobile -->
+        <!--  Menu Mobile -->
         <div id="menuMobile" class="hidden flex-col gap-1 bg-white shadow-md border-t border-gray-100 p-4 md:hidden">
             <a href="index.html" class="block px-4 py-2  text-gray-800 rounded-lg">
         Accueil
@@ -81,6 +81,7 @@
             </a>
         </div>
     </nav>
+
     <!-- CONTENU -->
     <main class="flex-1 w-full max-w-6xl mx-auto px-6 py-12">
         <div class="mb-10">
@@ -100,16 +101,16 @@
                     <div class="flex gap-2">
                         <input type="text" id="newCollection" placeholder="Titre..." class="flex-1 px-4 py-2.5 bg-gray-100 border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-400 transition text-sm">
                         <button id="addCollection" class="bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white p-3 rounded-xl hover:opacity-90 transition-opacity shadow-md shadow-fuchsia-500/30">
-          <i data-lucide="plus" class="w-6 h-6"></i>
-        </button>
+              <i data-lucide="plus" class="w-6 h-6"></i>
+            </button>
                     </div>
                 </div>
 
                 <div id="collectionsList" class="flex flex-col gap-3 my-6"></div>
 
                 <button id="addCardBtn" class="mt-auto w-full bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 flex items-center justify-center gap-2 text-base transition-opacity shadow-lg shadow-fuchsia-500/30 disabled:opacity-50 disabled:cursor-not-allowed">
-      <i data-lucide="plus" class="w-5 h-5"></i> Ajouter une carte
-    </button>
+          <i data-lucide="plus" class="w-5 h-5"></i> Ajouter une carte
+        </button>
             </div>
 
             <div id="studyArea" class="lg:col-span-2 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-full bg-white shadow-sm border border-gray-200/80 transition">
@@ -119,12 +120,13 @@
             </div>
         </div>
     </main>
+
     <!-- MODAL -->
     <div id="cardModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center p-4 z-50">
         <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative transform transition-all scale-100">
             <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-    <i data-lucide="x" class="w-5 h-5"></i>
-  </button>
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
             <h2 class="text-lg font-bold text-gray-800 mb-4">Nouvelle Carte</h2>
 
             <label class="block text-sm font-semibold text-gray-700 mb-1">Collection</label>
@@ -139,7 +141,9 @@
             <button id="saveCard" class="w-full bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white py-3 rounded-lg font-semibold hover:opacity-90">Ajouter</button>
         </div>
     </div>
-    <script src="js/main.js"></script>
+
+    <!-- Appel du JS séparé -->
+    <script src="js/flashcards.js"></script>
 </body>
 
 </html>
