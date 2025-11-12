@@ -77,6 +77,63 @@
     </nav>
 
 
+    <!--  CONTENU -->
+    <main class="flex-1 max-w-5xl mx-auto text-center px-6 py-14">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <i data-lucide="sparkles" class="w-4 h-4"></i> Application de Révision Interactive
+        </div>
+
+        <!-- Titre -->
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+            Bienvenue sur <span class="text-pink-600">Cards</span>
+        </h2>
+
+        <p class="text-gray-800 max-w-xl mx-auto">
+            Créez, organisez et étudiez vos flashcards interactives. Testez vos connaissances avec des quiz personnalisés.
+        </p>
+
+        <!-- Nombre Collections -->
+        <div class="text-center mt-10">
+            <span id="collectionsCount" class="text-5xl font-bold text-pink-600">0</span>
+            <p class="text-gray-500">Collections disponibles</p>
+        </div>
+
+        <!--  2 Cartes Principales -->
+        <div class="mt-10 grid sm:grid-cols-2 gap-6">
+            <!-- Flashcards -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-start text-left hover:shadow-md transition">
+                <div class="bg-gradient-to-br from-pink-500 to-fuchsia-600 text-white p-3 rounded-lg mb-4">
+                    <i data-lucide="book-open" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800">Flashcards</h3>
+                <p class="text-gray-600 text-sm mt-2 flex-1">
+                    Créez vos propres collections de cartes de révision. Organisez vos apprentissages par thématiques et révisez de manière interactive.
+                </p>
+                <a href="flashcards.html" class="mt-4 w-full text-center bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white py-2 rounded-lg font-semibold hover:opacity-90">
+          Accéder aux Flashcards
+        </a>
+            </div>
+
+            <!-- Quiz -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-start text-left hover:shadow-md transition">
+                <div class="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-3 rounded-lg mb-4">
+                    <i data-lucide="brain" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-800">Quiz</h3>
+                <p class="text-gray-600 text-sm mt-2 flex-1">
+                    Testez vos connaissances avec des quiz interactifs. Questions textuelles et vrai/faux pour une évaluation complète.
+                </p>
+                <a href="quiz.html" class="mt-4 w-full text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-2 rounded-lg font-semibold hover:opacity-90">
+          Passer un Quiz
+        </a>
+            </div>
+        </div>
+
+
+    </main>
+
+
     <!--  Script JS externe -->
     <script src="js/main.js"></script>
 </body>
