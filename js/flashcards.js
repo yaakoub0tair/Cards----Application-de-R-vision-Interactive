@@ -101,3 +101,15 @@ function showCard(i, keepFlip) {
 
     lucide.createIcons();
 }
+
+addCollectionBtn.onclick = () => {
+    const title = newCollectionInput.value.trim();
+    if (!title) return alert("Entrez un titre !");
+    const id = title.toLowerCase().replace(/\s+/g, '-') + '-' + Date.now().toString(36);
+    collections.push({ id, title, cards: [] });
+    save();
+    newCollectionInput.value = "";
+    currentId = id;
+    renderCollections();
+    showCard(0);
+};
