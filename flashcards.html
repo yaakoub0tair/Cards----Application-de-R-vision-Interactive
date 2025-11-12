@@ -81,7 +81,45 @@
             </a>
         </div>
     </nav>
+    <!-- CONTENU -->
+    <main class="flex-1 w-full max-w-6xl mx-auto px-6 py-12">
+        <div class="mb-10">
+            <h1 class="text-3xl font-extrabold bg-gradient-to-r from-[#E000C6] to-[#B029CF] bg-clip-text text-transparent">Flashcards</h1>
+            <p class="text-gray-500 mt-2 text-lg">Créez et gérez vos collections de cartes de révision</p>
+        </div>
 
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-6 flex flex-col h-full">
+                <div class="flex items-center gap-2.5 text-gray-800 font-semibold text-lg">
+                    <i data-lucide="folder-open" class="w-5 h-5 text-gray-500"></i>
+                    <span>Collections</span>
+                </div>
+
+                <div class="mt-6">
+                    <p class="text-base font-semibold text-gray-800 mb-2">Nouvelle Collection</p>
+                    <div class="flex gap-2">
+                        <input type="text" id="newCollection" placeholder="Titre..." class="flex-1 px-4 py-2.5 bg-gray-100 border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-400 transition text-sm">
+                        <button id="addCollection" class="bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white p-3 rounded-xl hover:opacity-90 transition-opacity shadow-md shadow-fuchsia-500/30">
+          <i data-lucide="plus" class="w-6 h-6"></i>
+        </button>
+                    </div>
+                </div>
+
+                <div id="collectionsList" class="flex flex-col gap-3 my-6"></div>
+
+                <button id="addCardBtn" class="mt-auto w-full bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 flex items-center justify-center gap-2 text-base transition-opacity shadow-lg shadow-fuchsia-500/30 disabled:opacity-50 disabled:cursor-not-allowed">
+      <i data-lucide="plus" class="w-5 h-5"></i> Ajouter une carte
+    </button>
+            </div>
+
+            <div id="studyArea" class="lg:col-span-2 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-full bg-white shadow-sm border border-gray-200/80 transition">
+                <i data-lucide="folder-open" class="w-20 h-20 text-gray-500"></i>
+                <p class="text-xl font-semibold text-gray-600 mt-5">Sélectionnez une Collection</p>
+                <p class="text-base text-gray-400 mt-1">Choisissez une collection pour commencer à réviser</p>
+            </div>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
