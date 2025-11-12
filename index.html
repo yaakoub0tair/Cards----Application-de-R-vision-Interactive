@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards - Application de Révision Interactive</title>
-    <link rel="stylesheet" href="css/output.css">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/output.css">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #FBF4FD, #FDF2F8);
+        }
+    </style>
 </head>
 
-<body>
-    <!-- NAVBAR -->
+<body class="min-h-screen flex flex-col">
+
+    <!-- ✅ NAVBAR -->
     <nav class="bg-white shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -47,7 +60,7 @@
             </div>
         </div>
 
-        <!--  Menu Mobile -->
+        <!-- ✅ Menu Mobile -->
         <div id="menuMobile" class="hidden flex-col gap-1 bg-white shadow-md border-t border-gray-100 p-4 md:hidden">
             <a class="block px-4 py-2 bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white rounded-lg font-semibold">
         Accueil
@@ -63,6 +76,9 @@
         </div>
     </nav>
 
+
+    <!--  Script JS externe -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
