@@ -76,3 +76,22 @@ function showQuestion() {
         document.getElementById('btn-false').onclick = () => selectedTF = false;
     }
 }
+
+document.getElementById('q-submit').onclick = () => {
+    const q = current.questions[qi];
+    let ok = false;
+    if (q.type === 'text') {
+        const val = norm(document.getElementById('q-text-answer').value);
+        ok = q.acceptedAnswers.map(norm).includes(val);
+    } else { ok = selectedTF === q.correct; }
+    if (ok) score++;
+    feedback.textContent = ok ? 'Correct !' : 'Incorrect.';
+    show(feedback, true);
+    feedback.className = `mt-4 p-3 rounded-lg text-white font-semibold ${ok?'bg-green-500':'bg-red-500'}`;
+    if (qi < current.questions.length - 1) {
+        setTimeout(() => {
+            qi++;
+            showQuestion();
+        }, 1200);
+    } else { setTimeout(showResult, 1200); }
+};
