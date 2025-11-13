@@ -20,3 +20,8 @@ const feedback = document.getElementById('q-feedback');
 const resultView = document.getElementById('q-result-view');
 const scoreEl = document.getElementById('q-score');
 const percentEl = document.getElementById('q-percent');
+
+
+function show(el, yes) { el.classList[yes ? 'remove' : 'add']('hidden'); }
+
+function norm(s) { return (s || '').toString().trim().toLowerCase(); }
