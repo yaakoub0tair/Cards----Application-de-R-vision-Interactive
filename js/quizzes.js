@@ -46,3 +46,15 @@ function renderList() {
     });
     lucide.createIcons();
 }
+
+function startQuiz(id) {
+    current = quizzes.find(x => x.id === id);
+    qi = 0;
+    score = 0;
+    selectedTF = null;
+    show(pageHeader, false);
+    show(listView, false);
+    show(runView, true);
+    show(resultView, false);
+    showQuestion();
+}
