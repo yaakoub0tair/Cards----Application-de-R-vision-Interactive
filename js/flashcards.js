@@ -124,3 +124,26 @@ closeModal.onclick = () => {
     cardModal.classList.add("hidden");
     cardModal.classList.remove("flex");
 };
+saveCardBtn.onclick = () => {
+    const cid = selectCollection.value;
+    const q = questionInput.value.trim();
+    const a = answerInput.value.trim();
+
+    if (!cid || !q || !a) return alert("Remplissez tous les champs !");
+
+    const col = getCol(cid);
+    if (!col) { alert("Erreur : La collection sélectionnée est introuvable."); return; }
+    if (!col.cards) col.cards = [];
+
+    col.cards.push({ id: "c" + Date.now(), question: q, answer: a });
+    save();
+    renderCollections();
+
+    currentId = cid;
+    showCard(col.cards.length - 1);
+
+    questionInput.value = "";
+    answerInput.value = "";
+    cardModal.classList.add("hidden");
+    cardModal.classList.remove("flex");
+};
