@@ -147,3 +147,4 @@ saveCardBtn.onclick = () => {
     cardModal.classList.add("hidden");
     cardModal.classList.remove("flex");
 };
+document.getElementById("menuBtn").onclick = () => document.getElementById("menuMobile").classList.toggle("hidden");
