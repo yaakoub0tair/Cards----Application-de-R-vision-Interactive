@@ -112,3 +112,16 @@ function showResult() {
 
 document.getElementById('q-back').onclick = returnToList;
 document.getElementById('q-return').onclick = returnToList;
+
+
+// Chargement du fichier JSON externe
+fetch('data/quizzes.json')
+    .then(res => res.json())
+    .then(data => {
+        quizzes = data;
+        renderList();
+    })
+    .catch(err => {
+        listBox.innerHTML = `<div class='text-center text-red-500'>Erreur de chargement des quiz</div>`;
+        console.error(err);
+    });
