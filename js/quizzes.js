@@ -58,3 +58,21 @@ function startQuiz(id) {
     show(resultView, false);
     showQuestion();
 }
+
+function showQuestion() {
+    const q = current.questions[qi];
+    titleEl.textContent = current.title;
+    qText.textContent = q.question;
+    progress.style.width = ((qi + 1) / current.questions.length) * 100 + '%';
+    progressLabel.textContent = `Question ${qi+1}/${current.questions.length}`;
+    show(feedback, false);
+    answerArea.innerHTML = '';
+
+    if (q.type === 'text') {
+        answerArea.innerHTML += `<input id="q-text-answer" class="w-full bg-gray-100 border-transparent rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Votre réponse ..."/>`;
+    } else {
+        answerArea.innerHTML = `<div class="flex gap-4"><button id="btn-true" class="flex-1 border-2 bg-gray-50 border-gray-300 rounded-lg py-3 font-semibold hover:border-green-500 hover:bg-green-100">Vrai</button><button id="btn-false" class="flex-1 border-2 bg-gray-50 border-gray-300 rounded-lg py-3 font-semibold hover:border-red-500 hover:bg-red-100">Faux</button></div>`;
+        document.getElementById('btn-true').onclick = () => selectedTF = true;
+        document.getElementById('btn-false').onclick = () => selectedTF = false;
+    }
+}
