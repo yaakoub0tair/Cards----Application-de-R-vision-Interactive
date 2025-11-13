@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards - Application de Révision Interactive</title>
-    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="src/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -19,9 +19,59 @@
 
 </head>
 
-<body>
 
-    <body class="min-h-screen flex flex-col text-gray-800">
+<body class="min-h-screen flex flex-col text-gray-800">
+    <!--  NAVBAR -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-500 to-pink-600 text-white grid place-items-center">
+                    <i data-lucide="layers" class="w-4 h-4"></i>
+                </div>
+                <span class="font-semibold text-lg bg-gradient-to-r from-pink-500 to-fuchsia-600 bg-clip-text text-transparent">
+    Cards
+  </span>
+            </a>
+
+            <!-- BUTTON BURGER : visible mobile only -->
+            <button id="menuBtn" class="md:hidden text-gray-700">
+  <i data-lucide="menu" class="w-7 h-7"></i>
+</button>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex items-center gap-4" id="menuDesktop">
+                <a class="px-4 py-2 text-gray-800 rounded-lg font-semibold hover:opacity-90">
+    Accueil
+  </a>
+
+                <a href="flashcards.html" class="flex items-center gap-1 text-gray-800  px-4 py-2 rounded-lg hover:text-pink-600">
+                    <i data-lucide="book-open" class="w-4 h-4"></i> Flashcards
+                </a>
+
+                <a href="quiz.html" class="flex items-center gap-1 bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white px-4 py-2 rounded-lg hover:text-pink-600">
+                    <i data-lucide="brain" class="w-4 h-4"></i> Quiz
+                </a>
+            </div>
+        </div>
+
+        <!--  Menu Mobile -->
+        <div id="menuMobile" class="hidden flex-col gap-1 bg-white shadow-md border-t border-gray-100 p-4 md:hidden">
+            <a class="block px-4 py-2  text-gray-800 rounded-lg font-semibold">
+  Accueil
+</a>
+
+            <a href="flashcards.html" class="flex items-center gap-1 text-gray-800  px-4 py-2 rounded-lg hover:text-pink-600">
+                <i data-lucide="book-open" class="w-4 h-4"></i> Flashcards
+            </a>
+
+            <a href="quiz.html" class="flex items-center gap-1 bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white px-4 py-2 rounded-lg hover:text-pink-600">
+                <i data-lucide="brain" class="w-4 h-4"></i> Quiz
+            </a>
+        </div>
+    </nav>
+
+</body>
 
 </html>
