@@ -1,3 +1,5 @@
+lucide.createIcons();
+
 const LS_KEY = "cards_collections";
 let collections = JSON.parse(localStorage.getItem(LS_KEY)) || [];
 let currentId = null,
@@ -19,7 +21,6 @@ const saveCardBtn = document.getElementById("saveCard");
 const cardModal = document.getElementById("cardModal");
 const closeModal = document.getElementById("closeModal");
 
-
 function renderCollections() {
     collectionsList.innerHTML = "";
     selectCollection.innerHTML = "";
@@ -36,8 +37,8 @@ function renderCollections() {
         const div = document.createElement("button");
         div.className = "flex justify-between items-center bg-slate-100 p-4 rounded-lg text-left hover:bg-slate-200 transition";
         div.innerHTML = `<div><p class='font-bold text-base text-gray-800'>${c.title}</p>
-        <p class='text-sm text-gray-500 mt-1'>${(c.cards||[]).length} carte(s)</p></div>
-        <i data-lucide='chevron-right' class='w-5 h-5 text-gray-400'></i>`;
+      <p class='text-sm text-gray-500 mt-1'>${(c.cards||[]).length} carte(s)</p></div>
+      <i data-lucide='chevron-right' class='w-5 h-5 text-gray-400'></i>`;
         div.addEventListener("click", () => {
             currentId = c.id;
             showCard(0, false);
@@ -68,29 +69,29 @@ function showCard(i, keepFlip) {
     studyArea.classList.add("bg-transparent");
 
     studyArea.innerHTML = `
-      <div class='flex flex-col items-center justify-center w-full'>
-        <span class='mb-3 text-gray-700'>Carte ${index+1} / ${col.cards.length}</span>
-        <div id="cardBox" 
-          class="rounded-2xl w-full max-w-lg cursor-pointer text-white text-center py-20 px-6 
-          bg-gradient-to-br ${flipped ? 'from-blue-500 to-blue-600' : 'from-pink-500 to-fuchsia-600'} 
-          transition-all duration-300 transform hover:scale-[1.02]">
-          <div class="text-sm opacity-80 mb-2">
-            ${flipped ? 'RÉPONSE' : 'QUESTION'}
-          </div>
-          <div class="text-2xl font-bold">
-            ${flipped ? card.answer : card.question}
-          </div>
-          <div class="mt-3 text-xs opacity-80 flex items-center justify-center gap-1">
-            <i data-lucide="corner-up-left" class="w-3 h-3 rotate-icon ${flipped?'flipped':''}"></i>
-            Cliquez pour retourner
-          </div>
+    <div class='flex flex-col items-center justify-center w-full'>
+      <span class='mb-3 text-gray-700'>Carte ${index+1} / ${col.cards.length}</span>
+      <div id="cardBox" 
+        class="rounded-2xl w-full max-w-lg cursor-pointer text-white text-center py-20 px-6 
+        bg-gradient-to-br ${flipped ? 'from-blue-500 to-blue-600' : 'from-pink-500 to-fuchsia-600'} 
+        transition-all duration-300 transform hover:scale-[1.02]">
+        <div class="text-sm opacity-80 mb-2">
+          ${flipped ? 'RÉPONSE' : 'QUESTION'}
         </div>
-        <div class='flex justify-center gap-5 w-full max-w-lg mt-6'>
-          <button id='prevCard' class='px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-300' style="background-color: #FFAEE9;">< Précédent</button>
-          <button id='nextCard' class='px-4 py-2 rounded-lg bg-white text-gray-700 hover:bg-gray-300'>Suivant  ></button>
+        <div class="text-2xl font-bold">
+          ${flipped ? card.answer : card.question}
+        </div>
+        <div class="mt-3 text-xs opacity-80 flex items-center justify-center gap-1">
+          <i data-lucide="corner-up-left" class="w-3 h-3 rotate-icon ${flipped?'flipped':''}"></i>
+          Cliquez pour retourner
         </div>
       </div>
-    `;
+      <div class='flex justify-center gap-5 w-full max-w-lg mt-6'>
+        <button id='prevCard' class='px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-300' style="background-color: #FFAEE9;">< Précédent</button>
+        <button id='nextCard' class='px-4 py-2 rounded-lg bg-white text-gray-700 hover:bg-gray-300'>Suivant  ></button>
+      </div>
+    </div>
+  `;
 
     document.getElementById("cardBox").onclick = () => {
         flipped = !flipped;
@@ -113,6 +114,7 @@ addCollectionBtn.onclick = () => {
     renderCollections();
     showCard(0);
 };
+
 addCardBtn.onclick = () => {
     renderCollections();
     if (currentId) selectCollection.value = currentId;
@@ -124,6 +126,7 @@ closeModal.onclick = () => {
     cardModal.classList.add("hidden");
     cardModal.classList.remove("flex");
 };
+
 saveCardBtn.onclick = () => {
     const cid = selectCollection.value;
     const q = questionInput.value.trim();
@@ -147,5 +150,7 @@ saveCardBtn.onclick = () => {
     cardModal.classList.add("hidden");
     cardModal.classList.remove("flex");
 };
+
 document.getElementById("menuBtn").onclick = () => document.getElementById("menuMobile").classList.toggle("hidden");
+
 renderCollections();
