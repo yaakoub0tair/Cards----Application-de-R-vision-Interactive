@@ -119,3 +119,8 @@ addCardBtn.onclick = () => {
     cardModal.classList.remove("hidden");
     cardModal.classList.add("flex");
 };
+
+closeModal.onclick = () => {
+    cardModal.classList.add("hidden");
+    cardModal.classList.remove("flex");
+};
