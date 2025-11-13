@@ -21,7 +21,6 @@ const resultView = document.getElementById('q-result-view');
 const scoreEl = document.getElementById('q-score');
 const percentEl = document.getElementById('q-percent');
 
-
 function show(el, yes) { el.classList[yes ? 'remove' : 'add']('hidden'); }
 
 function norm(s) { return (s || '').toString().trim().toLowerCase(); }
@@ -32,15 +31,15 @@ function renderList() {
         const card = document.createElement('div');
         card.className = 'rounded-xl border border-gray-200 bg-white p-6 shadow-sm relative flex flex-col';
         card.innerHTML = `
-        <div class="flex-1">
-          <div class="absolute top-4 right-4 text-blue-400"><i data-lucide="help-circle" class="w-6 h-6"></i></div>
-          <h3 class="text-lg font-bold text-gray-800 pr-8">${q.title}</h3>
-          <div class="mt-4 inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-3 py-1 rounded-md">${q.questions.length} Questions</div>
-        </div>
-        <button class="mt-6 w-full rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 font-semibold hover:opacity-90 flex items-center justify-center gap-2">
-          <i data-lucide="play" class="w-5 h-5"></i> Commencer
-        </button>
-      `;
+      <div class="flex-1">
+        <div class="absolute top-4 right-4 text-blue-400"><i data-lucide="help-circle" class="w-6 h-6"></i></div>
+        <h3 class="text-lg font-bold text-gray-800 pr-8">${q.title}</h3>
+        <div class="mt-4 inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-3 py-1 rounded-md">${q.questions.length} Questions</div>
+      </div>
+      <button class="mt-6 w-full rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 font-semibold hover:opacity-90 flex items-center justify-center gap-2">
+        <i data-lucide="play" class="w-5 h-5"></i> Commencer
+      </button>
+    `;
         card.querySelector('button').addEventListener('click', () => startQuiz(q.id));
         listBox.appendChild(card);
     });
@@ -113,6 +112,35 @@ function showResult() {
 document.getElementById('q-back').onclick = returnToList;
 document.getElementById('q-return').onclick = returnToList;
 
+// Chargement du fichier JSON externe
+fetch('data/quizzes.json')
+    .then(res => res.json())
+    .then(data => {
+        quizzes = data;
+        renderList();
+    })
+    .catch(err => {
+        listBox.innerHTML = `<div class='text-center text-red-500'>Erreur de chargement des quiz</div>`;
+        console.error(err);
+    });
+
+
+function returnToList() {
+    show(pageHeader, true);
+    show(listView, true);
+    show(runView, false);
+    show(resultView, false);
+}
+
+function showResult() {
+    show(runView, false);
+    show(resultView, true);
+    scoreEl.textContent = `Score: ${score}/${current.questions.length}`;
+    percentEl.textContent = Math.round((score / current.questions.length) * 100) + '%';
+}
+
+document.getElementById('q-back').onclick = returnToList;
+document.getElementById('q-return').onclick = returnToList;
 
 // Chargement du fichier JSON externe
 fetch('data/quizzes.json')
