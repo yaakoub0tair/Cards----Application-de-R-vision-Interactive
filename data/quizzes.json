@@ -1,0 +1,27 @@
+[{
+        "id": "html-1",
+        "title": "Quiz HTML - niveau 1",
+        "questions": [
+            { "type": "text", "question": "Que signifie HTML ?", "acceptedAnswers": ["hypertext markup language"] },
+            { "type": "tf", "question": "La balise <p> est utilisée pour les liens.", "correct": false },
+            { "type": "tf", "question": "La balise <img> nécessite un attribut 'src'.", "correct": true },
+            { "type": "text", "question": "Quelle balise définit le titre principal d'une page ?", "acceptedAnswers": ["h1", "<h1>"] }
+        ]
+    },
+    {
+        "id": "css-1",
+        "title": "Quiz CSS - Fondamentaux",
+        "questions": [
+            { "type": "tf", "question": "CSS signifie 'Cascading Style Sheets'.", "correct": true },
+            { "type": "tf", "question": "La propriété 'color' change la couleur de fond d'un élément.", "correct": false }
+        ]
+    },
+    {
+        "id": "js-1",
+        "title": "Quiz JavaScript - Bases",
+        "questions": [
+            { "type": "tf", "question": "JavaScript est un langage de programmation compilé.", "correct": false },
+            { "type": "tf", "question": "On peut déclarer une variable avec le mot-clé 'let'.", "correct": true }
+        ]
+    }
+]
