@@ -113,3 +113,9 @@ addCollectionBtn.onclick = () => {
     renderCollections();
     showCard(0);
 };
+addCardBtn.onclick = () => {
+    renderCollections();
+    if (currentId) selectCollection.value = currentId;
+    cardModal.classList.remove("hidden");
+    cardModal.classList.add("flex");
+};
