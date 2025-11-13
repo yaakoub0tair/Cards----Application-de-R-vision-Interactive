@@ -95,3 +95,20 @@ document.getElementById('q-submit').onclick = () => {
         }, 1200);
     } else { setTimeout(showResult, 1200); }
 };
+
+function returnToList() {
+    show(pageHeader, true);
+    show(listView, true);
+    show(runView, false);
+    show(resultView, false);
+}
+
+function showResult() {
+    show(runView, false);
+    show(resultView, true);
+    scoreEl.textContent = `Score: ${score}/${current.questions.length}`;
+    percentEl.textContent = Math.round((score / current.questions.length) * 100) + '%';
+}
+
+document.getElementById('q-back').onclick = returnToList;
+document.getElementById('q-return').onclick = returnToList;
